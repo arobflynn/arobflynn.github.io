@@ -1,0 +1,89 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your entire site, values
+# which you are expected to set up once and rarely need to edit after that.
+
+############################
+# Required Configuration
+############################
+
+# Basic Information 
+title: Robert Flynn
+position: Postdoctoral Scholar
+affiliations:
+  - name: NBER and Wharton
+email: robflynn (at) wharton.upenn.edu
+# address: No. 1, Sec. 4, Roosevelt Rd.<br>Taipei City 106, Taiwan (R.O.C.)
+
+# your profile picture
+avatar: ./assets/img/headshots/headshot.jpg
+
+# Sidebar Links 
+# For those you don't need, delete or comment out the corresponding line.
+cv_link: "https://www.dropbox.com/scl/fi/96u2qxtbcd70x3wam1nf7/curriculum_vitae.pdf?rlkey=tw3pgb2xbsc9u98ent01pyn6l&st=acwr5eap&raw=1"
+# arxiv: 
+# google_scholar: 
+# math_overflow: 
+github_link: https://github.com/arobflynn
+linkedin: https://www.linkedin.com/in/arobflynn/
+twitter: https://x.com/arobflynn
+# orcid: https://orcid.org/0000-0002-0101-0521
+
+# Search Engine Optimization (SEO)
+# The following information is used to improve the website traffic from search engines, e.g., Google.
+description: Robert Flynn is a postdoctoral researcher at NBER and Wharton studying innovation, organizational economics, and digital communities.
+keywords: Robert Flynn academic research management
+canonical: https://arobflynn.github.io/
+
+
+############################
+# Optional Configuration
+############################
+
+# Customization
+# option to choose between Serif or Sans Serif fonts.
+font: "Sans Serif" # "Serif" or "Sans Serif" 
+# site-wide accent colors
+accent_color: "#3b4652"
+dark_accent_color: "#c3c8cd"
+dark_link_color: "#94a7b5"
+link_color: "#586b7a"
+link_hover_color: "#35414c"
+# option to disable the footnote, "Powered by Jekyll and Minimal Light theme."
+enable_footnote: false
+# option to toggle the automatic dark theme
+auto_dark_mode: true
+# option to make avatar (profile photo) round vs rectangular
+round_avatar: false
+# option to show thumbnail or "teaser" figure next to each publication
+enable_publication_thumbnails: true
+# "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
+# favicon: ./assets/img/favicon.png
+# favicon_dark: ./assets/img/favicon-dark.png
+
+# Google Analytics ID
+# Uncomment this if you use Google Analytics
+# google_analytics: UA-000000000-0
+
+
+############################
+# Fixed Configuration (ignore this for non-experts)
+############################
+
+# Build settings
+markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+
+# Use this project as a remote theme for GitHub Pages
+# See the guide here: https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll
+# remote_theme: yaoyao-liu/minimal-light
+
+# The following files will be removed from the generated website.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - html_site/
+  - LICENSE
+  - README.md
+  - minimal-light.gemspec

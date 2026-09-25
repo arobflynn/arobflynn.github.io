@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'en-US' }}">
+
+<head>
+  <title>
+    {{ site.title }}
+    {% if site.affiliations %}
+    | {{ site.affiliations | map: "name" | join: " | " }}
+    {% elsif site.affiliation %}
+    | {{ site.affiliation }}
+    {% endif %}
+  </title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ site.description }}">
+  {% if site.keywords %}
+  <meta name="keywords" content="{{ site.keywords }}">
+  {% endif %}
+  {% if site.canonical %}
+  <link rel="canonical" href="{{ site.canonical }}" />
+  {% endif %}
+
+  {% if site.favicon_dark %}
+  <link rel="icon" media="(prefers-color-scheme:dark)" href="{{ site.favicon_dark }}" type="image/png" />
+  {% endif %}
+  {% if site.favicon %}
+  <link rel="icon" media="(prefers-color-scheme:light)" href="{{ site.favicon }}" type="image/png" />
+  {% endif %}
+  {% if site.favicon or site.favicon_dark %}
+  <script src="./assets/js/favicon-switcher.js" type="application/javascript"></script>
+  {% endif %}
+
+  <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css"
+    integrity="sha256-1oz1+rx2BF/9OiBUPSh1NEUwyUECNU5O70RoKnClGNs=" crossorigin=anonymous>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  {% if site.font == "Sans Serif" %}
+  <link rel="stylesheet" href="./assets/css/font_sans_serif.css">
+  {% else %}
+  <link rel="stylesheet" href="./assets/css/font.css">
+  {% endif %}
+  {% if site.auto_dark_mode %}
+  <link rel="stylesheet" href="./assets/css/style.css">
+  {% else %}
+  <link rel="stylesheet" href="./assets/css/style-no-dark-mode.css">
+  {% endif %}
+  <style>
+    :root {
+      color-scheme: dark;
+      --site-accent-color: {{ site.accent_color | default: "#043361" }};
+      --site-dark-accent-color: {{ site.dark_accent_color | default: "#3eb7f0" }};
+      --site-dark-link-color: {{ site.dark_link_color | default: site.dark_accent_color | default: "#3eb7f0" }};
+      --site-link-color: {{ site.link_color | default: "#3399cc" }};
+      --site-link-hover-color: {{ site.link_hover_color | default: "#006699" }};
+    }
+
+    @media all {
+      :root {
+        --site-accent-color: var(--site-dark-accent-color);
+        --site-link-color: var(--site-dark-link-color);
+        --site-link-hover-color: var(--site-dark-link-color);
+      }
+    }
+  </style>
+  {% if site.round_avatar %}
+  <style>
+    .image.avatar img {
+      border-radius: 100%;
+    }
+  </style>
+  {% endif %}
+
+  <!-- for code syntax highlighting -->
+  <link rel="stylesheet" href="./assets/css/github-highlight.css">
+
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+
+      {% if site.avatar %}
+      <a class="image avatar"><img src="{{ site.avatar }}" alt="" /></a>
+      {% endif %}
+
+      <h1>{{ site.title }}</h1>
+
+      {% if site.position %}
+      <position style="font-size:1.10rem;">{{ site.position }}</position>
+      <br>
+      {% endif %}
+      {% if site.affiliations %}
+      {% for affiliation in site.affiliations %}
+      {% if affiliation.link %}
+      <a href="{{ affiliation.link }}" rel="noopener">
+        <autocolor>{{ affiliation.name }}</autocolor>
+      </a>
+      {% else %}
+      <autocolor>{{ affiliation.name }}</autocolor>
+      {% endif %}
+      <br>
+      {% endfor %}
+      {% elsif site.affiliation %}
+      <a href="{{ site.affiliation_link }}" rel="noopener">
+        <autocolor>{{ site.affiliation }}</autocolor>
+      </a>
+      <br>
+      {% endif %}
+      {% if site.address %}
+      <div class="address">{{ site.address }}</div>
+      {% endif %}
+      {% if site.email %}
+      <email>{{ site.email }}</email>
+      {% endif %}
+
+      <br>
+      <br>
+      <div class="social-icons">
+        {% if site.cv_link %}
+        <a style="margin: 0 5px 0 0" href="{{ site.cv_link }}" title="Curriculum Vitae" aria-label="Curriculum Vitae">
+          <i class="ai ai-cv" style="font-size:1.3rem;"></i>
+        </a>
+        {% endif %}
+
+        {% if site.arxiv %}
+        <a style="margin: 0 5px 0 0" href="{{ site.arxiv }}" title="arXiv" aria-label="arXiv">
+          <i class="ai ai-arxiv"></i>
+        </a>
+        {% endif %}
+
+        {% if site.math_overflow %}
+        <a style="margin: 0 5px 0 0" href="{{ site.math_overflow }}" title="MathOverflow" aria-label="MathOverflow">
+          <i class="ai ai-mathoverflow"></i>
+        </a>
+        {% endif %}
+
+        {% if site.orcid %}
+        <a style="margin: 0 5px 0 0" href="{{ site.orcid }}" title="ORCID" aria-label="ORCID">
+          <i class="ai ai-orcid"></i>
+        </a>
+        {% endif %}
+
+        {% if site.google_scholar %}
+        <a style="margin: 0 5px 0 0" href="{{ site.google_scholar }}" title="Google Scholar" aria-label="Google Scholar">
+          <i class="ai ai-google-scholar" style="font-size:1.2rem"></i>
+        </a>
+        {% endif %}
+
+        {% if site.linkedin %}
+        <a style="margin: 0 5px 0 0" href="{{ site.linkedin }}" title="LinkedIn" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        {% endif %}
+
+        {% if site.twitter %}
+        <a style="margin: 0 5px 0 0" href="{{ site.twitter }}" title="X (Twitter)" aria-label="X (Twitter)">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+        {% endif %}
+
+        {% if site.github_link %}
+        <a style="margin: 0 0 0 0" href="{{ site.github_link }}" title="GitHub" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        {% endif %}
+
+      </div>
+      <br>
+
+    </header>
+    <main>
+
+      {{ content }}
+
+      <br>
+
+      {% if site.enable_footnote %}
+      <p>
+        <small>
+          <!-- <a href="https://github.com/harryrichman/minimal-light-academic">Source</a> on GitHub. -->
+          Powered by <a href="https://jekyllrb.com/">Jekyll</a> and <a href="https://github.com/harryrichman/minimal-light-academic" target="_blank"
+            rel="noopener">Minimal Light</a> theme. 
+        </small>
+      </p>
+      {% endif %}
+
+    </main>
+    <footer>
+
+    </footer>
+  </div>
+  <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
+  {% if site.google_analytics %}
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', '{{ site.google_analytics }}', 'auto');
+    ga('send', 'pageview');
+  </script>
+  {% endif %}
+</body>
+
+</html>

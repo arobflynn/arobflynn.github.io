@@ -1,0 +1,49 @@
+publications:
+
+  - title: "Building a Wall Around Science: The Impact of U.S.-China Tensions on International Scientific Research"
+    authors: Robert Flynn, Britta Glennon, Raviv Murciano-Goroff, Jiusi Xiao
+    journal: "American Economic Journal: Economic Policy"
+    notes: Conditional Accept
+    description: "Investigating the impact of U.S.–China tensions on doctoral student mobility, scientific knowledge flows, and researcher productivity"
+    image: ./assets/files/thumbs/foreign_funding.png
+    link: https://www.nber.org/papers/w32622
+    # year: 2026
+    media:
+      - outlet: The New York Times
+        link: https://www.nytimes.com/2025/03/31/business/economy/trump-research-cutbacks-economy.html
+      - outlet: Fortune
+        link: https://fortune.com/asia/2024/07/04/washington-scrutiny-chinese-scientists-hurting-productivity-admissions-citations-china-initiative/
+      - outlet: The Chronicle of Higher Education
+        link: https://www.chronicle.com/newsletter/latitudes/2024-07-03
+      - outlet: Chemistry World
+        link: https://www.chemistryworld.com/news/us-china-tensions-appear-to-be-damaging-countries-science-analysis-finds/4019785.article
+      - outlet: NBER Digest
+        link: https://www.nber.org/digest/202410/us-china-stem-researchers-and-students
+
+working_papers: 
+
+  
+  - title: The Emergence and Effects of Inclusive Governance in Open Source Software
+    authors: Robert Flynn
+    link: "https://www.dropbox.com/scl/fi/9nvy1l2oj9qjrjfezh78t/oss_coc.pdf?rlkey=oswius5cukgfc2zw16lipblh1&st=4stgu3ya&raw=1"
+    image: ./assets/files/thumbs/oss_coc.png
+    description: "Understanding how the introduction of governance addressed toward social inclusion in open source software projects impacts behavior, diversity, participation, and innovation"
+
+  - title: "Performance Goals and Search in Innovation Communities"
+    authors: Robert Flynn
+    link: "https://www.dropbox.com/scl/fi/93ti6rewrk4roh0nc491h/speedrun.pdf?rlkey=r969wy84sbmh3mt6jcsi6oool&st=pd7v4xfk&raw=1"
+    image: ./assets/files/thumbs/speedrun.png
+    description: "Exploring how attending to multiple objectives in self-organized gaming communities impacts their ability to collectively innovate and discover new techniques"
+
+  - title: "The Role of Leaderboards in Open Innovation Ecosystems: Evidence from LLM Design"
+    authors: Robert Flynn
+    link: "https://www.dropbox.com/scl/fi/lfa3snm92h0fpz8ffhhnz/hf.pdf?rlkey=jkrgxzd59lyyerbqhpwph0oee&st=6c3mu636&raw=1"
+    image: ./assets/files/thumbs/hf.png
+    description: "Examining which types of developers respond to benchmarks featured on public leaderboards on an open AI development platform"
+
+work_in_progress:
+  - title: The Effect of Minimum Wage Laws on Distributions of Automatable Work Within Firms
+    authors: R Flynn
+
+  - title: International Scientific Research and the Returns to Foreign Funding
+    authors: R Flynn, B Glennon, R Murciano-Goroff, J Xiao

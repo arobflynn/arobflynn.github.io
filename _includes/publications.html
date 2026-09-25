@@ -1,0 +1,109 @@
+<div class="publications{% if include.thumbnail_size %} publications-{{ include.thumbnail_size }}{% endif %}">
+
+  {% assign publication_category = include.category | default: "publications" %}
+  {% assign publication_items = site.data.publications[publication_category] | default: empty %}
+  {% assign show_thumbnails = site.enable_publication_thumbnails %}
+  {% if include.thumbnails == false or include.thumbnails == "false" %}
+  {% assign show_thumbnails = false %}
+  {% endif %}
+
+  <ol class="bibliography">
+
+    {% for pub in publication_items %}
+
+    <li>
+      <div class="pub-row">
+        {% if show_thumbnails %}
+        <div class="col-sm-3 abbr" style="position: relative;padding-right: 15px;padding-left: 15px;">
+          {% if pub.image %}
+          <img src="{{ pub.image }}" class="teaser img-fluid z-depth-1" alt="">
+          {% if pub.journal_short %}
+          <abbr class="badge">{{ pub.journal_short }}</abbr>
+          {% endif %}
+          {% else %}
+          <div class="teaser" style="box-shadow: none;">
+            {% if pub.journal_short %}
+            <abbr class="badge" style="margin-top: 10%;">{{ pub.journal_short }}</abbr>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+        {% endif %}
+        <div class="col-sm-9{% unless show_thumbnails %} no-thumbnail{% endunless %}" style="position: relative;padding-right: 15px;padding-left: 20px;">
+          {% if pub.link %}
+          <div class="title">
+            <a href="{{ pub.link }}">{{ pub.title }}</a>
+          </div>
+          {% else %}
+          <div class="title">
+            {{ pub.title }}
+          </div>
+          {% endif %}
+          {% if pub.authors %}
+          <div class="author">{{ pub.authors }}</div>
+          {% endif %}
+          {% if pub.journal or pub.year %}
+          <div class="periodical">
+            {% if pub.journal %}
+            <em>{{ pub.journal }}{% if pub.notes %} ({{ pub.notes }}){% endif %}</em>
+            {% endif %}
+            {% if pub.year %}
+            ({{ pub.year }})
+            {% endif %}
+          </div>
+          {% endif %}
+          {% if pub.notes and pub.journal == nil %}
+          <div class="status-note">{{ pub.notes }}</div>
+          {% endif %}
+          {% if pub.description %}
+          <div class="description">{{ pub.description }}</div>
+          {% endif %}
+          {% if pub.pdf or pub.arxiv or pub.bibtex or pub.page or pub.code or pub.demo or pub.others %}
+          <div class="links">
+            {% if pub.pdf %}
+            <a href="{{ pub.pdf }}" class="btn btn-sm z-depth-0" role="button" target="_blank"
+              style="font-size:12px;">PDF</a>
+            {% endif %}
+            {% if pub.arxiv %}
+            <a href="{{ pub.arxiv }}" class="btn btn-sm z-depth-0" role="button" target="_blank"
+              style="font-size:12px;">arXiv</a>
+            {% endif %}
+            {% if pub.bibtex %}
+            <a href="{{ pub.bibtex }}" class="btn btn-sm z-depth-0" role="button" target="_blank"
+              style="font-size:12px;">BibTex</a>
+            {% endif %}
+            {% if pub.page %}
+            <a href="{{ pub.page }}" class="btn btn-sm z-depth-0" role="button" target="_blank"
+              style="font-size:12px;">Project Page</a>
+            {% endif %}
+            {% if pub.code %}
+            <a href="{{ pub.code }}" class="btn btn-sm z-depth-0" role="button" target="_blank"
+              style="font-size:12px;">Code</a>
+            {% endif %}
+            {% if pub.demo %}
+            <a href="{{ pub.demo }}" class="btn btn-sm z-depth-0" role="button" target="_blank"
+              style="font-size:12px;">Demo</a>
+            {% endif %}
+            {% if pub.others %}
+            {{ pub.others }}
+            {% endif %}
+          </div>
+          {% endif %}
+          {% if pub.media %}
+          <div class="media-links">
+            <span class="media-label">Media:</span>
+            <span class="media-outlets">
+            {% for item in pub.media %}
+            <a href="{{ item.link }}" target="_blank">{{ item.outlet | default: item.title }}</a>
+            {% endfor %}
+            </span>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </li>
+
+    {% endfor %}
+
+  </ol>
+</div>
